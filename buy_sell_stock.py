@@ -16,12 +16,9 @@ class Solution:
             seq_max_price_tracker_idx: int = 0
 
             for next_idx, next_price in enumerate(arr_to_compare):
-                if price < next_price:
-                    if seq_max_price_tracker < next_price:
-                        seq_max_price_tracker = next_price
-                        seq_max_price_tracker_idx = next_idx + idx + 1
-                    else:
-                        break
+                if price < next_price and seq_max_price_tracker < next_price:
+                    seq_max_price_tracker = next_price
+                    seq_max_price_tracker_idx = next_idx + idx + 1
                 else:
                     break
 
