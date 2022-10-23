@@ -2,9 +2,14 @@ from collections import deque
 class Solution:
     def rotate(self, nums: list[int], k: int) -> None:
         """
-        @param nums: a list of integers to rotate
-        @param k: num of steps to rotate by
-        @return: None
+        Rotate list of integers k times
+
+            Parameters:
+                nums (list[int]): A list of integers to rotate
+                k (int): Number of times to rotate
+
+            Return:
+                None: Rotates the list in Place
         """
         deq = deque(nums)
         deq.rotate(k)
