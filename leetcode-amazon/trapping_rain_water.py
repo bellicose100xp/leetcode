@@ -1,3 +1,5 @@
+from typing import List
+
 class Solution:
     def trap(self, height: List[int]) -> int:
         """
@@ -18,7 +20,7 @@ class Solution:
         # create a dictionary of right indexes with the maximum values to their right
         # Time: O(n), Space: O(n)
         max_right_dict: dict[int, int] = {}
-        max_right_val = 0
+        max_right_val: int = 0
         for i in range(n-2, 0, -1):
             curr_val = height[i+1]
             max_right_val = max(curr_val, max_right_val)
@@ -31,7 +33,7 @@ class Solution:
             max_left = max(height[i-1] , max_left)
             max_right = max_right_dict[i]
                 
-            water_stored_by_curr = min(max(max_left, curr), max(max_right, curr)) - curr
+            water_stored_by_curr: int = min(max(max_left, curr), max(max_right, curr)) - curr
             water_saved += water_stored_by_curr
         
         return water_saved
