@@ -2,6 +2,10 @@ from collections import defaultdict, Counter
 
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
+        """
+        Time: O(26n) ~= O(n)
+        Space: O(26) ~= O(1)
+        """
         n: int = len(s)
         left: int = 0
         right: int = 0
