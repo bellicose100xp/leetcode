@@ -1,5 +1,9 @@
 class Solution:
     def decodeString(self, s: str) -> str:
+        """
+        Time: O(n)
+        Space: O(1)
+        """
         stack: list[str] = []
         for c in s:
             if c.isalpha():
