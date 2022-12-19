@@ -1,5 +1,6 @@
 from __future__ import annotations  # postponed evaluation of annotations
 
+
 class ListNode:  # Definition for singly-linked list.
     def __init__(self, val: int = 0, next: ListNode | None = None):
         self.val = val
@@ -37,7 +38,22 @@ class LinkedList:
         for val in arr:
             self.insert(val)
 
+# utility functions
+# prints linked list given head of the linked list
+
+
+def print_head_ll(head: ListNode | None) -> None:
+    ll: str = ""
+
+    while head:
+        ll += f'{str(head.val)} -> '
+        head = head.next
+
+    ll += "None"
+    print(ll)
+
 
 ll = LinkedList()
 ll.insert_arr([1, 2, 3, 4, 5])
 ll.print_ll()
+print_head_ll(ll.head)  # same output as above
