@@ -35,7 +35,7 @@ class Solution:
         root: list[int] = [i for i in range(stones_count)]
         
         # union by rank - optimization
-        size: list[int] = [1 for i in range(stones_count)]
+        size: list[int] = [1 for _ in range(stones_count)]
 
         disconnected_graphs = stones_count
 
