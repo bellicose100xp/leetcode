@@ -62,7 +62,44 @@ def printUndirectedGraph(root: Node | None) -> None:
     print(adj_matrix)
 
 
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val = 0, neighbors = None):
+        self.val = val
+        self.neighbors = neighbors if neighbors is not None else []
+"""
+
+
+class Solution:
+    def cloneGraph(self, node: 'Node') -> 'Node':
+
+        # original nodes that have already been traversed -> cloned node ref
+        seen: dict[Node, Node] = {}
+
+        # add clone of root
+        seen[node] = Node(node.val, [])
+
+        # stack: dfs throught all nodes using iterative approach
+        stack: list[Node] = [node]
+
+        while stack:
+            next_node = stack.pop()
+            if next_node.neighbors:
+                for nei in next_node.neighbors:
+                    if nei not in seen:
+                        seen[nei] = Node(nei.val, [])
+                        stack.append(nei)
+                    seen[next_node].neighbors.append(seen[nei])  # type: ignore
+
+        return seen[node]
+
 tree = Graph()
 leet = [[2, 4], [1, 3], [2, 4], [1, 3]]
 root = tree.buildGraphLeetCode(leet)
 printUndirectedGraph(root)
+
+solution = Solution()
+assert root is not None
+clone = solution.cloneGraph(root)
+printUndirectedGraph(clone)

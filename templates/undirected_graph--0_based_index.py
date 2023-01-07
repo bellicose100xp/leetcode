@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import List, Optional  # type: ignore
 from collections import deque
 
-# Definition for a binary tree node.
+# Definition for undirected graph (0-based index)
 
 
 class Node:
